@@ -5,7 +5,7 @@ import { ObjectId } from 'mongodb';
 import { getCustomers } from '../api/customers/index';
 
 export type Customer = {
-  _id: ObjectId;
+  _id?: ObjectId;
   name: string;
   industry: string;
 };
@@ -38,8 +38,8 @@ const Customers: NextPage = ({
       <h1>Customers</h1>
       {customers.map((customer: Customer) => {
         return (
-          <div key={customer._id.toString()}>
-            <p>{customer._id.toString()}</p>
+          <div key={customer._id?.toString()}>
+            <p>{customer._id?.toString()}</p>
             <p>{customer.name}</p>
             <p>{customer.industry}</p>
           </div>
